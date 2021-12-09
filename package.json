@@ -1,0 +1,21 @@
+{
+  "name": "timely-util",
+  "version": "1.0.0",
+  "description": "Utilities for managing Timely data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ken Courville",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "csv-parser": "^3.0.0",
+    "fs-extra": "^10.0.0",
+    "webdriverio": "^7.16.10"
+  },
+  "devDependencies": {
+    "@wdio/types": "^7.16.3"
+  }
+}
