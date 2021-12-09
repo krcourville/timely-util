@@ -10,6 +10,7 @@ const TIMELY_LOGGEDIN_TITLE = "Hours – Timely";
 const FIVE_MINUTES = 1000 * 60 * 5;
 const ONE_SECOND = 1000;
 const CSV_FILE = "my_time.csv";
+const LABEL_ID_DELIM = "|";
 
 (async () => {
   await main();
@@ -37,7 +38,6 @@ async function main() {
 
   for (let i = 0; i < entries.length; i++) {
     const entry = entries[i];
-    console.log(`SENDING ENTRY ${i + 1}:`, entry);
     await timely.addTimeEntry(entry);
   }
 
@@ -95,7 +95,12 @@ class TimelyClient {
   async addTimeEntry(data) {
     try {
       const event = {
-        event: data,
+        event: {
+          ...data,
+          label_ids: ("" + data.label_ids)
+            .split(LABEL_ID_DELIM)
+            .filter((f) => ("" + f).trim().length > 0),
+        },
       };
       const res = await axios.post(this.url, event, {
         withCredentials: true,
