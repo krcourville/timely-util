@@ -1,0 +1,2 @@
+day,project_id,label_ids,hours,minutes,notes,billable
+2021-10-05,111,222;333;444,3,0,"My Note",TRUE
